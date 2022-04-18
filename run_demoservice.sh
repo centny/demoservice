@@ -1,10 +1,9 @@
 #!/bin/bash
-docker rm -f wmservice-srv
+docker rm -f demoservice-srv
 docker run -d \
-    --name wmservice-srv \
-    --link wmservice-postgres:postgres \
-    --link wmservice-redis:redis \
-    -p 3741:3741 \
-    -v /data/wmservice/conf:/srv/conf \
-    -v /data/wmservice/upload:/srv/upload \
-    wmservice:$1
+    --name demoservice-srv \
+    --link demoservice-postgres:postgres \
+    --link demoservice-redis:redis \
+    -p 10808:8080 \
+    -v /data/demoservice/conf:/srv/conf \
+    demoservice:$1
