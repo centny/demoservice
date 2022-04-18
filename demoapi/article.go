@@ -2,10 +2,10 @@ package demoapi
 
 import (
 	"github.com/centny/demoservice/demodb"
+	"github.com/centny/demoservice/deps/go/define"
 	"github.com/codingeasygo/util/attrvalid"
 	"github.com/codingeasygo/util/xmap"
 	"github.com/codingeasygo/web"
-	"sxbastudio.com/base/go/define"
 )
 
 func AddArticleH(w *web.Session) web.Result {

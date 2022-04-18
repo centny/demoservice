@@ -3,9 +3,9 @@ package util
 import (
 	"time"
 
+	"github.com/centny/demoservice/deps/go/pgx"
+	"github.com/centny/demoservice/deps/go/xlog"
 	"github.com/codingeasygo/util/debug"
-	"sxbastudio.com/base/go/pgx"
-	"sxbastudio.com/base/go/xlog"
 )
 
 //NamedRunner will run call by delay

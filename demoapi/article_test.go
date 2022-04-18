@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/centny/demoservice/demodb"
-	"sxbastudio.com/base/go/define"
+	"github.com/centny/demoservice/deps/go/define"
 )
 
 func TestArticle(t *testing.T) {

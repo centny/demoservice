@@ -6,10 +6,10 @@ import (
 	"net/url"
 	"strings"
 
+	"github.com/centny/demoservice/deps/go/xlog"
 	"github.com/codingeasygo/util/xnet"
 	"github.com/codingeasygo/web"
 	"golang.org/x/net/websocket"
-	"sxbastudio.com/base/go/xlog"
 )
 
 type ForwardH struct {

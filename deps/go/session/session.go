@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"sync"
 
+	"github.com/centny/demoservice/deps/go/xlog"
 	"github.com/codingeasygo/util/uuid"
-	"sxbastudio.com/base/go/xlog"
 
 	"github.com/codingeasygo/util/xmap"
 	"github.com/codingeasygo/util/xsql"

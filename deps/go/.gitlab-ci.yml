@@ -1,5 +1,5 @@
 variables:
-  GIT_CLONE_PATH: /builds/shared/gopath/src/sxbastudio.com/base/go
+  GIT_CLONE_PATH: /builds/shared/gopath/src/github.com/centny/demoservice/deps/go
   GOROOT: /builds/shared/go
   GOPATH: /builds/shared/gopath/
   GOSUMDB: "off"
@@ -18,6 +18,6 @@ build:
     - set -e
     - export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
     - source /builds/shared/proxy.env
-    - cd /builds/shared/gopath/src/sxbastudio.com/base/go/beec
+    - cd /builds/shared/gopath/src/github.com/centny/demoservice/deps/go/beec
     - echo "install beec"
     - go install

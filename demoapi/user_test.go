@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/centny/demoservice/deps/go/define"
 	"github.com/codingeasygo/util/converter"
-	"sxbastudio.com/base/go/define"
 )
 
 func TestLogin(t *testing.T) {
