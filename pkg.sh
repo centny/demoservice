@@ -50,7 +50,7 @@ fi
 docker build -t demoservice:$srv_ver .
 cd $output
 docker image save demoservice:$srv_ver -o demoservice-$srv_ver.img
-tar -czvf demoservice-docker-$srv_ver.tar.gz demoservice-$srv_ver.img run_*.sh
+tar -czvf ../demoservice-docker-$srv_ver.tar.gz demoservice-$srv_ver.img run_*.sh
 
 cd $cpwd
 
