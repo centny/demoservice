@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/gob"
+	"os"
 	"time"
 
 	"github.com/Centny/rediscache"
@@ -9,13 +10,22 @@ import (
 	"github.com/centny/demoservice/demodb"
 	"github.com/centny/demoservice/deps/go/pgx"
 	"github.com/centny/demoservice/deps/go/session"
+	"github.com/centny/demoservice/deps/go/xlog"
 	"github.com/codingeasygo/util/xmap"
+	"github.com/codingeasygo/util/xprop"
 	"github.com/codingeasygo/web"
 )
 
 func main() {
-	rediscache.InitRedisPool("redis:6379?db=3")
-	err := pgx.Bootstrap("postgresql://dev:123@pg.loc:5432/demoservice")
+	confPath := "conf/demoservice.properties"
+	if len(os.Args) > 1 {
+		confPath = os.Args[1]
+	}
+	conf := xprop.NewConfig()
+	conf.LoadFile(confPath)
+	conf.Print()
+	rediscache.InitRedisPool(conf.StrDef("", "/server/redis_conn"))
+	err := pgx.Bootstrap(conf.StrDef("", "/server/pg_conn"))
 	if err != nil {
 		panic(err)
 	}
@@ -33,5 +43,6 @@ func main() {
 	web.Shared.ShowSlow = 100 * time.Millisecond
 	// web.Shared.Builder = web.NewMemSessionBuilder("", "", "session_id", 60*time.Second)
 	demoapi.Handle("", web.Shared)
-	web.ListenAndServe(":8080")
+	xlog.Infof("demo service listen on %v", conf.StrDef("", "/server/listen"))
+	web.ListenAndServe(conf.StrDef("", "/server/listen"))
 }
