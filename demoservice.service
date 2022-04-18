@@ -1,0 +1,12 @@
+[Unit]
+Description=demo service
+After=network.target
+
+[Service]
+User=demo
+Restart=always
+WorkingDirectory=WORKING
+ExecStart=WORKING/demo /home/demo/conf/demoservice.properties
+
+[Install]
+WantedBy=multi-user.target
